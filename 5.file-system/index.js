@@ -49,10 +49,19 @@ fs.writeFile(asyncFilePath, "Hello, async node js", (err) => {
         }
         console.log("New line added to async file");
 
-      })
+        fs.readFile(asyncFilePath, "utf8", (err, updatedData) => {
+          if (err) {
+            throw err;
+          }
 
-    })
-  })
+          console.log("Updated file content: ", updatedData);
 
-})
+        });
+
+      });
+
+    });
+  });
+
+});
 
